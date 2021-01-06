@@ -7,14 +7,11 @@ export function soloPares(array) {
 }
 
 export function moverALaDerecha(array) {
-    const arrayCopy = [...array]
-    const lastElement = arrayCopy[arrayCopy.length - 1]
+    const arrayCopy = [...array];
 
-    for (let i = arrayCopy.length - 1; i > 0; i--) {
-        arrayCopy[i] = arrayCopy[i - 1]
-    }
-    arrayCopy[0] = lastElement
-    return arrayCopy;
+    return arrayCopy.map((element, index, arr) => {
+        return index ? arr[index - 1] : index === 0 ? arr[arr.length - 1] : "";
+    })
 }
 
 export function soloUnaPalabra(array) {
